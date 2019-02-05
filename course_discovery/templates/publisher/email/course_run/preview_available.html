@@ -1,0 +1,25 @@
+{% extends "publisher/email/email_base.html" %}
+{% load i18n %}
+{% block body %}
+<!-- Message Body -->
+    <p>
+        {% blocktrans trimmed %}
+            Dear {{ recipient_name }},
+        {% endblocktrans %}
+    <p>
+        {% blocktrans with link_start='<a href="' link_middle='">' link_end='</a>' trimmed %}
+            A preview is now available for the {{ course_run_number }} course run of {{ course_name }}. {{ link_start }}{{ preview_link }}{{ link_middle }} View the course run in Publisher{{ link_end }} to access the preview for this About page and accept or decline the preview.
+        {% endblocktrans %}
+    </p>
+
+    {% comment %}Translators: It's closing of mail.{% endcomment %}
+    {% trans "Thanks," %}<br>
+    {{ platform_name }} {{ sender_role }}
+
+
+{% blocktrans trimmed %}
+    <p>Note: This email address is unable to receive replies. For questions or comments, contact {{ contact_us_email }}.</p>
+{% endblocktrans %}
+
+<!-- End Message Body -->
+{% endblock body %}

@@ -1,0 +1,18 @@
+# Packages required for testing
+-r base.txt
+
+coverage==4.2
+ddt==1.1.0
+edx-lint==0.5.4
+factory-boy==2.8.1
+freezegun==0.3.7
+isort==4.2.5
+lxml==3.6.1
+mock==2.0.0
+pep8==1.7.0
+pytest==3.0.6
+pytest-django==3.1.2
+pytest-django-ordering==1.0.1
+responses==0.5.1
+selenium==3.4.0
+testfixtures==4.13.1

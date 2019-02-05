@@ -1,0 +1,28 @@
+language: python
+
+python:
+    - "3.5"
+
+services:
+  - docker
+
+sudo: required
+
+cache:
+  - directories:
+    - node_modules
+    - course_discovery/static/bower_components
+
+before_install:
+    - make travis_up
+
+# We have no requirements to install since everything is run in Docker.
+install: true
+
+script:
+    - make travis_test
+
+after_success:
+    - pip install -U codecov
+    - docker exec course-discovery /edx/app/discovery/discovery/.travis/run_coverage.sh
+    - codecov
